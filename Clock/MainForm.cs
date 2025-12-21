@@ -17,6 +17,13 @@ namespace Clock
 			InitializeComponent();
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
+			StartPosition = FormStartPosition.Manual;
+			Location = new Point
+				(
+				System.Windows.Forms.Screen.PrimaryScreen.Bounds.Right,
+				System.Windows.Forms.Screen.PrimaryScreen.Bounds.Top
+				);
+
 		}
 		void SetVisibility(bool visible)
 		{
@@ -56,5 +63,6 @@ namespace Clock
 			this.TopMost = false;
 
 		}
+
 	}
 }
