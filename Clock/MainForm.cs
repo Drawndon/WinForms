@@ -20,7 +20,7 @@ namespace Clock
 			StartPosition = FormStartPosition.Manual;
 			Location = new Point
 				(
-				System.Windows.Forms.Screen.PrimaryScreen.Bounds.Right,
+				System.Windows.Forms.Screen.PrimaryScreen.Bounds.Right - this.Right,
 				System.Windows.Forms.Screen.PrimaryScreen.Bounds.Top
 				);
 
