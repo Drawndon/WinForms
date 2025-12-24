@@ -87,5 +87,43 @@ namespace Clock
 			(object sender, EventArgs e) =>	tsmiShowWeekday.Checked = cbShowWeekday.Checked;
 
 		private void tsmiQuit_Click(object sender, EventArgs e) => this.Close();
+
+		private void tsmiForegroundColor_Click(object sender, EventArgs e)
+		{
+			ColorDialog colorDialog = new ColorDialog();
+			if(colorDialog.ShowDialog() == DialogResult.OK)
+			{
+				Color selectedColor = colorDialog.Color;
+				labelTime.ForeColor = selectedColor;
+				btnHideControls.ForeColor = selectedColor;
+				cbShowDate.ForeColor = selectedColor;
+				cbShowWeekday.ForeColor = selectedColor;
+			}
+		}
+
+		private void tsmiBackgroundColor_Click(object sender, EventArgs e)
+		{
+			ColorDialog colorDialog = new ColorDialog();
+			if(colorDialog.ShowDialog() == DialogResult.OK)
+			{
+				Color selectedColor = colorDialog.Color;
+				labelTime.BackColor = selectedColor;
+				btnHideControls.BackColor = selectedColor;
+				cbShowDate.BackColor = selectedColor;
+				cbShowWeekday.BackColor = selectedColor;
+			}
+		}
+
+		private void tsmiFont_Click(object sender, EventArgs e)
+		{
+			if (fontDialog.ShowDialog() == DialogResult.OK)
+			{
+				Font selectedFont = fontDialog.Font;
+				labelTime.Font = selectedFont;
+				btnHideControls.Font = selectedFont;
+				cbShowDate.Font = selectedFont;
+				cbShowWeekday.Font = selectedFont;
+			}
+		}
 	}
 }

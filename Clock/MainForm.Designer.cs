@@ -55,6 +55,8 @@
 			this.cbShowWeekday = new System.Windows.Forms.CheckBox();
 			this.btnHideControls = new System.Windows.Forms.Button();
 			this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+			this.colorDialog = new System.Windows.Forms.ColorDialog();
+			this.fontDialog = new System.Windows.Forms.FontDialog();
 			this.contextMenuStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -152,6 +154,7 @@
 			this.tsmiFont.Name = "tsmiFont";
 			this.tsmiFont.Size = new System.Drawing.Size(240, 32);
 			this.tsmiFont.Text = "Font";
+			this.tsmiFont.Click += new System.EventHandler(this.tsmiFont_Click);
 			// 
 			// tsmiColor
 			// 
@@ -167,12 +170,14 @@
 			this.tsmiForegroundColor.Name = "tsmiForegroundColor";
 			this.tsmiForegroundColor.Size = new System.Drawing.Size(254, 34);
 			this.tsmiForegroundColor.Text = "Foreground color";
+			this.tsmiForegroundColor.Click += new System.EventHandler(this.tsmiForegroundColor_Click);
 			// 
 			// tsmiBackgroundColor
 			// 
 			this.tsmiBackgroundColor.Name = "tsmiBackgroundColor";
 			this.tsmiBackgroundColor.Size = new System.Drawing.Size(254, 34);
 			this.tsmiBackgroundColor.Text = "Background color";
+			this.tsmiBackgroundColor.Click += new System.EventHandler(this.tsmiBackgroundColor_Click);
 			// 
 			// toolStripSeparator4
 			// 
@@ -306,6 +311,8 @@
 		private System.Windows.Forms.ToolStripMenuItem tsmiAutoStart;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
 		private System.Windows.Forms.ToolStripMenuItem tsmiQuit;
+		private System.Windows.Forms.ColorDialog colorDialog;
+		private System.Windows.Forms.FontDialog fontDialog;
 	}
 }
 
