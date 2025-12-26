@@ -15,9 +15,11 @@ namespace Clock
 	public partial class FontDialog : Form
 	{
 		public Font Font {  get; set; }
+		int lastChosenIndex; //Переменная для сохранения состояния шрифта после закрытия программы
 		public FontDialog()
 		{
 			InitializeComponent();
+			lastChosenIndex = 0;
 			//Перенесли эти строки из FontDialog_Load()
 			LoadFonts("*.ttf"); 
 			LoadFonts("*.otf");
@@ -43,10 +45,12 @@ namespace Clock
 		private void buttonOK_Click(object sender, EventArgs e)
 		{
 			this.Font = labelExample.Font;
+			this.lastChosenIndex = comboBoxFont.SelectedIndex;
 		}
 
 		private void FontDialog_Load(object sender, EventArgs e)
-		{ 
+		{
+
 		}
 		void LoadFonts(string extension)
 		{
@@ -67,6 +71,12 @@ namespace Clock
 				comboBoxFont.Items.Add(files[i].Split('\\').Last()); //Убрали полный путь и оставили
 				//только имя шрифта
 			}
+		}
+
+		private void buttonCancel_Click(object sender, EventArgs e)
+		{
+			labelExample.Font = this.Font;
+			comboBoxFont.SelectedIndex = lastChosenIndex;
 		}
 	}
 }
