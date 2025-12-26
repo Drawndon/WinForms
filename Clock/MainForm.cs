@@ -126,5 +126,10 @@ namespace Clock
 			DialogResult result = fontDialog.ShowDialog();
 			if (result == DialogResult.OK ) labelTime.Font = fontDialog.Font;
 		}
+
+		private void labelTime_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }
