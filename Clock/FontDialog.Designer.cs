@@ -95,7 +95,7 @@
 			this.numericUpDownFontSize.Size = new System.Drawing.Size(114, 26);
 			this.numericUpDownFontSize.TabIndex = 4;
 			this.numericUpDownFontSize.Value = new decimal(new int[] {
-            32,
+            24,
             0,
             0,
             0});
