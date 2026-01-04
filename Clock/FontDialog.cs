@@ -67,7 +67,6 @@ namespace Clock
 			this.Filename = comboBoxFont.SelectedItem.ToString();
 			this.lastChosenIndex = comboBoxFont.SelectedIndex;
 		}
-
 		private void FontDialog_Load(object sender, EventArgs e)
 		{
 			numericUpDownFontSize.Value = (decimal)Font.Size;
