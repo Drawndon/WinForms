@@ -103,6 +103,7 @@
 			this.clbWeekDays.Size = new System.Drawing.Size(640, 48);
 			this.clbWeekDays.TabIndex = 4;
 			this.clbWeekDays.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.clbWeekDays_ItemCheck);
+			this.clbWeekDays.SelectedIndexChanged += new System.EventHandler(this.clbWeekDays_SelectedIndexChanged);
 			// 
 			// labelFilename
 			// 

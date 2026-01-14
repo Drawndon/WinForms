@@ -138,10 +138,13 @@
 			// 
 			// tsmiShowConsole
 			// 
+			this.tsmiShowConsole.Checked = true;
 			this.tsmiShowConsole.CheckOnClick = true;
+			this.tsmiShowConsole.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.tsmiShowConsole.Name = "tsmiShowConsole";
 			this.tsmiShowConsole.Size = new System.Drawing.Size(240, 32);
 			this.tsmiShowConsole.Text = "Show console";
+			this.tsmiShowConsole.CheckedChanged += new System.EventHandler(this.tsmiShowConsole_CheckedChanged);
 			// 
 			// toolStripSeparator3
 			// 
