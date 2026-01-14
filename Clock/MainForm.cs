@@ -215,6 +215,8 @@ namespace Clock
 
 		private void tsmiAlarms_Click(object sender, EventArgs e)
 		{
+			alarms.StartPosition = FormStartPosition.Manual;
+			alarms.Location = new Point(this.Location.X - alarms.Width, this.Location.Y);
 			alarms.ShowDialog();
 		}
 	}

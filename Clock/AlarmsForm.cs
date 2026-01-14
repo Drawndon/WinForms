@@ -13,6 +13,7 @@ namespace Clock
 	public partial class AlarmsForm : Form
 	{
 	AlarmDialog alarm;
+
 		public AlarmsForm()
 		{
 			InitializeComponent();
@@ -22,6 +23,11 @@ namespace Clock
 		private void buttonAdd_Click(object sender, EventArgs e)
 		{
 			alarm.ShowDialog();
+		}
+
+		private void AlarmsForm_Load(object sender, EventArgs e)
+		{
+
 		}
 	}
 }
