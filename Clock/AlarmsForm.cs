@@ -27,5 +27,23 @@ namespace Clock
 			}
 			
 		}
+
+		private void listBoxAlarms_MouseDoubleClick(object sender, MouseEventArgs e)
+		{
+			if (listBoxAlarms.Items.Count > 0)
+			{
+				if (listBoxAlarms.SelectedItem != null)
+				{
+					if (alarm.ShowDialog() == DialogResult.OK)
+					{
+						listBoxAlarms.Items[listBoxAlarms.SelectedIndex] = alarm.Alarm;
+					}
+				}
+				else
+					MessageBox.Show(this, "Выберите будильник", "Info",
+						MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
+			else buttonAdd_Click(sender, e);
+		}
 	}
 }
