@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Clock
 {
@@ -12,6 +13,15 @@ namespace Clock
 		byte days;
 		public Week(byte days)
 		{ this.days = days; }
+		public /*System.Windows.Forms.CheckedListBox*/ void Extract(System.Windows.Forms.CheckedListBox clb)
+		{
+			if(clb.Items.Count != 7) return;
+			for (byte i = 0; i < 7; i++)
+			{
+				clb.SetItemChecked(i, Convert.ToBoolean((1 << i) & days));
+			}
+			//return clb;
+		}
 		public override string ToString()
 		{
 			string days = "";

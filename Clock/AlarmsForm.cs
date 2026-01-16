@@ -12,36 +12,31 @@ namespace Clock
 {
 	public partial class AlarmsForm : Form
 	{
-	AlarmDialog alarm;
+	//AlarmDialog alarm;
 		public AlarmsForm()
 		{
 			InitializeComponent();
-			alarm = new AlarmDialog();
+			//alarm = new AlarmDialog();
 		}
 
 		private void buttonAdd_Click(object sender, EventArgs e)
 		{
+			AlarmDialog alarm = new AlarmDialog();
 			if (alarm.ShowDialog() == DialogResult.OK)
 			{
-				listBoxAlarms.Items.Add(alarm.Alarm);
+				listBoxAlarms.Items.Add(new Alarm(alarm.Alarm));
 			}
 			
 		}
 
 		private void listBoxAlarms_MouseDoubleClick(object sender, MouseEventArgs e)
 		{
-			if (listBoxAlarms.Items.Count > 0)
+			
+			if (listBoxAlarms.Items.Count > 0 && listBoxAlarms.SelectedItem != null)
 			{
-				if (listBoxAlarms.SelectedItem != null)
-				{
-					if (alarm.ShowDialog() == DialogResult.OK)
-					{
-						listBoxAlarms.Items[listBoxAlarms.SelectedIndex] = alarm.Alarm;
-					}
-				}
-				else
-					MessageBox.Show(this, "Выберите будильник", "Info",
-						MessageBoxButtons.OK, MessageBoxIcon.Information);
+				AlarmDialog alarm = new AlarmDialog(listBoxAlarms.SelectedItem as Alarm);
+				alarm.ShowDialog();
+				listBoxAlarms.Refresh();
 			}
 			else buttonAdd_Click(sender, e);
 		}
