@@ -11,6 +11,10 @@ namespace Clock
 	{
 		static readonly string[] NAMES = { "Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс" };
 		byte days;
+		public byte DaysMask
+		{
+			get => days; set { days = value; }
+		}
 		public Week(byte days)
 		{ this.days = days; }
 		public /*System.Windows.Forms.CheckedListBox*/ void Extract(System.Windows.Forms.CheckedListBox clb)

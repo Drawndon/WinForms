@@ -21,6 +21,17 @@ namespace Clock
 			this.Days = other.Days;
 			this.Filename = other.Filename;
 		}
+		public Alarm(string setting)
+		{
+			string[] elems = setting.Split('|');
+			this.Date = DateTime.Parse(elems[0]);
+			this.Time = TimeSpan.Parse(elems[1]);
+			this.Days = new Week(byte.Parse(elems[2]));
+			this.Filename = elems[3];
+		}
+		public string AlarmString()
+		{ return $"{Date.ToString("dd.MM.yyyy")}|{Time.ToString()}|{Days.DaysMask}|{Filename}"; }
+
 		public override string ToString()
 		{
 			//return $"{Date}, {Time}, {Days.ToString()}, {Filename}";

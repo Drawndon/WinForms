@@ -38,6 +38,7 @@ namespace Clock
 			alarms = new AlarmsForm();
 			alarm = null;
 			LoadSettings();
+			LoadAlarm();
 		}
 		void SetVisibility(bool visible)
 		{
@@ -76,6 +77,17 @@ namespace Clock
 
 			System.Diagnostics.Process.Start("notepad", "Settings.ini");
 		}
+		void SaveAlarm()
+		{
+			Directory.SetCurrentDirectory(Application.StartupPath + "\\..\\..\\..");
+			StreamWriter writer = new StreamWriter("alarm.ini");
+
+			for (int i = 0; i < alarms.List.Items.Count; i++)
+			{
+				writer.WriteLine((alarms.List.Items[i] as Alarm).AlarmString());
+			}
+			writer.Close();
+		}
 
 		void LoadSettings()
 		{
@@ -104,6 +116,26 @@ namespace Clock
 				labelTime.Font = fontDialog.Font;
 
 
+				reader.Close();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(this, ex.Message, "Settings issue", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			}
+		}
+		void LoadAlarm()
+		{
+			Directory.SetCurrentDirectory(Application.StartupPath + "\\..\\..\\..");
+			try
+			{
+				StreamReader reader = new StreamReader("alarm.ini");
+				string setting;
+				Alarm alarm;
+				while ((setting = reader.ReadLine()) != null)
+				{
+					alarm = new Alarm(setting);
+					alarms.List.Items.Add(alarm);
+				}
 				reader.Close();
 			}
 			catch (Exception ex)
@@ -226,6 +258,7 @@ namespace Clock
 		private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
 		{
 			SaveSettings();
+			SaveAlarm();
 		}
 
 		private void tsmiAlarms_Click(object sender, EventArgs e)
