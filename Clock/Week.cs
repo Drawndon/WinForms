@@ -22,6 +22,12 @@ namespace Clock
 			}
 			//return clb;
 		}
+		public bool Contains(byte day)
+		{
+			if (day == 0) day = 7;
+			day--;
+			return (days & (1 << day)) != 0;
+		}
 		public override string ToString()
 		{
 			string days = "";
